@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-html-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: basic-html
+  template:
+    metadata:
+      labels:
+        app: basic-html
+    spec:
+      containers:
+        - name: basic-html
+          image: saltocumulus/basic-html:latest
+          ports:
+            - containerPort: 80
+
